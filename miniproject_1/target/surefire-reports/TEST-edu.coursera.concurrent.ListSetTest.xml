@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.coursera.concurrent.ListSetTest" time="904.788" tests="6" errors="0" skipped="0" failures="5">
+  <properties>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="java.vm.version" value="17.0.9+8-LTS"/>
+    <property name="sun.boot.library.path" value="/home/aa87/.sdkman/candidates/java/17.0.9-amzn/lib"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/aa87/web-dev/concurrent-java/miniproject_1"/>
+    <property name="java.vm.vendor" value="Amazon.com Inc."/>
+    <property name="java.vendor.url" value="https://aws.amazon.com/corretto/"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=":"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/home/aa87/web-dev/concurrent-java/miniproject_1"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="java.runtime.version" value="17.0.9+8-LTS"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Linux"/>
+    <property name="classworlds.conf" value="/home/aa87/.sdkman/candidates/maven/current/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="maven.conf" value="/home/aa87/.sdkman/candidates/maven/current/conf"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="61.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="6.6.10-76060610-generic"/>
+    <property name="library.jansi.path" value="/home/aa87/.sdkman/candidates/maven/current/lib/jansi-native"/>
+    <property name="user.home" value="/home/aa87"/>
+    <property name="user.timezone" value="America/Edmonton"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="17"/>
+    <property name="user.name" value="aa87"/>
+    <property name="java.class.path" value="/home/aa87/.sdkman/candidates/maven/current/boot/plexus-classworlds-2.7.0.jar"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher test"/>
+    <property name="java.home" value="/home/aa87/.sdkman/candidates/java/17.0.9-amzn"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.version" value="17.0.9"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Amazon.com Inc."/>
+    <property name="sun.stderr.encoding" value="UTF-8"/>
+    <property name="maven.home" value="/home/aa87/.sdkman/candidates/maven/current"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.version.date" value="2023-10-17"/>
+    <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-17/issues/"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="java.vendor.version" value="Corretto-17.0.9.8.1"/>
+    <property name="sun.stdout.encoding" value="UTF-8"/>
+  </properties>
+  <testcase name="testCoarseGrainedLockingRandomLarge" classname="edu.coursera.concurrent.ListSetTest" time="386.74"/>
+  <testcase name="testCoarseGrainedLockingRepeatingLarge" classname="edu.coursera.concurrent.ListSetTest" time="90.646">
+    <failure message="Expected remove throughput to remain similar (at least 0.600000x) with locks, but found 0.409328x" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Expected remove throughput to remain similar (at least 0.600000x) with locks, but found 0.409328x
+	at junit.framework.Assert.fail(Assert.java:47)
+	at junit.framework.Assert.assertTrue(Assert.java:20)
+	at edu.coursera.concurrent.ListSetTest.testCoarseGrainedLockingHelper(ListSetTest.java:182)
+	at edu.coursera.concurrent.ListSetTest.testCoarseGrainedLockingRepeatingLarge(ListSetTest.java:69)
+</failure>
+    <system-out><![CDATA[=========================================================
+CoarseList vs. SyncList (Large Repeating)
+=========================================================
+# threads = 8
+0.8699558638083228x improvement in add throughput (139.1556441384309 -> 121.05926860025221)
+0.9017295889901431x improvement in contains throughput (158.3962380893454 -> 142.83057466989027)
+0.4093275979171383x improvement in remove throughput (2123.8938053097345 -> 869.3683495585238)
+=========================================================
+]]></system-out>
+  </testcase>
+  <testcase name="testReadWriteLocksRandomLarge" classname="edu.coursera.concurrent.ListSetTest" time="254.686">
+    <failure message="expected:&lt;50535&gt; but was:&lt;50524&gt;" type="junit.framework.AssertionFailedError"><![CDATA[junit.framework.AssertionFailedError: expected:<50535> but was:<50524>
+	at junit.framework.Assert.fail(Assert.java:47)
+	at junit.framework.Assert.failNotEquals(Assert.java:280)
+	at junit.framework.Assert.assertEquals(Assert.java:64)
+	at junit.framework.Assert.assertEquals(Assert.java:198)
+	at junit.framework.Assert.assertEquals(Assert.java:204)
+	at edu.coursera.concurrent.ListSetTest.testReadWriteLocksHelper(ListSetTest.java:197)
+	at edu.coursera.concurrent.ListSetTest.testReadWriteLocksRandomLarge(ListSetTest.java:85)
+]]></failure>
+    <system-out><![CDATA[=========================================================
+RWCoarseList vs. SyncList (Large Random)
+=========================================================
+# threads = 8
+1.2606806870163125x improvement in add throughput (14.605203103605659 -> 18.41249748266636)
+10.972905216468998x improvement in contains throughput (5.62390158172232 -> 61.7105390029891)
+3.5806132116096805x improvement in remove throughput (7.697025821116309 -> 27.560072345189905)
+=========================================================
+]]></system-out>
+  </testcase>
+  <testcase name="testReadWriteLocksRandomSmall" classname="edu.coursera.concurrent.ListSetTest" time="63.26">
+    <failure message="expected:&lt;31551&gt; but was:&lt;31528&gt;" type="junit.framework.AssertionFailedError"><![CDATA[junit.framework.AssertionFailedError: expected:<31551> but was:<31528>
+	at junit.framework.Assert.fail(Assert.java:47)
+	at junit.framework.Assert.failNotEquals(Assert.java:280)
+	at junit.framework.Assert.assertEquals(Assert.java:64)
+	at junit.framework.Assert.assertEquals(Assert.java:198)
+	at junit.framework.Assert.assertEquals(Assert.java:204)
+	at edu.coursera.concurrent.ListSetTest.testReadWriteLocksHelper(ListSetTest.java:197)
+	at edu.coursera.concurrent.ListSetTest.testReadWriteLocksRandomSmall(ListSetTest.java:101)
+]]></failure>
+    <system-out><![CDATA[=========================================================
+RWCoarseList vs. SyncList (Small Random)
+=========================================================
+# threads = 8
+0.4363357215967247x improvement in add throughput (37.53225428102275 -> 16.37666325486182)
+7.6557254755688176x improvement in contains throughput (15.59074299634592 -> 119.35844834017158)
+1.747482243188805x improvement in remove throughput (19.41276389225916 -> 33.92346019293968)
+=========================================================
+]]></system-out>
+  </testcase>
+  <testcase name="testReadWriteLocksRepeatingLarge" classname="edu.coursera.concurrent.ListSetTest" time="68.594">
+    <failure message="expected:&lt;10000&gt; but was:&lt;34601&gt;" type="junit.framework.AssertionFailedError"><![CDATA[junit.framework.AssertionFailedError: expected:<10000> but was:<34601>
+	at junit.framework.Assert.fail(Assert.java:47)
+	at junit.framework.Assert.failNotEquals(Assert.java:280)
+	at junit.framework.Assert.assertEquals(Assert.java:64)
+	at junit.framework.Assert.assertEquals(Assert.java:198)
+	at junit.framework.Assert.assertEquals(Assert.java:204)
+	at edu.coursera.concurrent.ListSetTest.testReadWriteLocksHelper(ListSetTest.java:205)
+	at edu.coursera.concurrent.ListSetTest.testReadWriteLocksRepeatingLarge(ListSetTest.java:117)
+]]></failure>
+    <system-out><![CDATA[=========================================================
+RWCoarseList vs. SyncList (Large Repeating)
+=========================================================
+# threads = 8
+2.9417635658914727x improvement in add throughput (126.48637965677393 -> 372.09302325581393)
+2.715654320987654x improvement in contains throughput (139.65667733488507 -> 379.25925925925924)
+0.2090647941270348x improvement in remove throughput (2931.297709923664 -> 612.8311522502394)
+=========================================================
+]]></system-out>
+  </testcase>
+  <testcase name="testReadWriteLocksRepeatingSmall" classname="edu.coursera.concurrent.ListSetTest" time="40.862">
+    <failure message="expected:&lt;10000&gt; but was:&lt;38683&gt;" type="junit.framework.AssertionFailedError"><![CDATA[junit.framework.AssertionFailedError: expected:<10000> but was:<38683>
+	at junit.framework.Assert.fail(Assert.java:47)
+	at junit.framework.Assert.failNotEquals(Assert.java:280)
+	at junit.framework.Assert.assertEquals(Assert.java:64)
+	at junit.framework.Assert.assertEquals(Assert.java:198)
+	at junit.framework.Assert.assertEquals(Assert.java:204)
+	at edu.coursera.concurrent.ListSetTest.testReadWriteLocksHelper(ListSetTest.java:205)
+	at edu.coursera.concurrent.ListSetTest.testReadWriteLocksRepeatingSmall(ListSetTest.java:133)
+]]></failure>
+    <system-out><![CDATA[=========================================================
+RWCoarseList vs. SyncList (Small Repeating)
+=========================================================
+# threads = 8
+1.883484303263432x improvement in add throughput (126.4905461492852 -> 238.24295818339743)
+2.3684891023273x improvement in contains throughput (149.7309521952741 -> 354.6361285555966)
+0.34813319878910187x improvement in remove throughput (927.536231884058 -> 322.90615539858726)
+=========================================================
+]]></system-out>
+  </testcase>
+</testsuite>

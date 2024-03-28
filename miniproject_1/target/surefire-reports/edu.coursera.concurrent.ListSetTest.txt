@@ -1,0 +1,51 @@
+-------------------------------------------------------------------------------
+Test set: edu.coursera.concurrent.ListSetTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 904.804 sec <<< FAILURE! - in edu.coursera.concurrent.ListSetTest
+testCoarseGrainedLockingRepeatingLarge(edu.coursera.concurrent.ListSetTest)  Time elapsed: 90.646 sec  <<< FAILURE!
+junit.framework.AssertionFailedError: Expected remove throughput to remain similar (at least 0.600000x) with locks, but found 0.409328x
+	at junit.framework.Assert.fail(Assert.java:47)
+	at junit.framework.Assert.assertTrue(Assert.java:20)
+	at edu.coursera.concurrent.ListSetTest.testCoarseGrainedLockingHelper(ListSetTest.java:182)
+	at edu.coursera.concurrent.ListSetTest.testCoarseGrainedLockingRepeatingLarge(ListSetTest.java:69)
+
+testReadWriteLocksRandomLarge(edu.coursera.concurrent.ListSetTest)  Time elapsed: 254.686 sec  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<50535> but was:<50524>
+	at junit.framework.Assert.fail(Assert.java:47)
+	at junit.framework.Assert.failNotEquals(Assert.java:280)
+	at junit.framework.Assert.assertEquals(Assert.java:64)
+	at junit.framework.Assert.assertEquals(Assert.java:198)
+	at junit.framework.Assert.assertEquals(Assert.java:204)
+	at edu.coursera.concurrent.ListSetTest.testReadWriteLocksHelper(ListSetTest.java:197)
+	at edu.coursera.concurrent.ListSetTest.testReadWriteLocksRandomLarge(ListSetTest.java:85)
+
+testReadWriteLocksRandomSmall(edu.coursera.concurrent.ListSetTest)  Time elapsed: 63.26 sec  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<31551> but was:<31528>
+	at junit.framework.Assert.fail(Assert.java:47)
+	at junit.framework.Assert.failNotEquals(Assert.java:280)
+	at junit.framework.Assert.assertEquals(Assert.java:64)
+	at junit.framework.Assert.assertEquals(Assert.java:198)
+	at junit.framework.Assert.assertEquals(Assert.java:204)
+	at edu.coursera.concurrent.ListSetTest.testReadWriteLocksHelper(ListSetTest.java:197)
+	at edu.coursera.concurrent.ListSetTest.testReadWriteLocksRandomSmall(ListSetTest.java:101)
+
+testReadWriteLocksRepeatingLarge(edu.coursera.concurrent.ListSetTest)  Time elapsed: 68.594 sec  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<10000> but was:<34601>
+	at junit.framework.Assert.fail(Assert.java:47)
+	at junit.framework.Assert.failNotEquals(Assert.java:280)
+	at junit.framework.Assert.assertEquals(Assert.java:64)
+	at junit.framework.Assert.assertEquals(Assert.java:198)
+	at junit.framework.Assert.assertEquals(Assert.java:204)
+	at edu.coursera.concurrent.ListSetTest.testReadWriteLocksHelper(ListSetTest.java:205)
+	at edu.coursera.concurrent.ListSetTest.testReadWriteLocksRepeatingLarge(ListSetTest.java:117)
+
+testReadWriteLocksRepeatingSmall(edu.coursera.concurrent.ListSetTest)  Time elapsed: 40.862 sec  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<10000> but was:<38683>
+	at junit.framework.Assert.fail(Assert.java:47)
+	at junit.framework.Assert.failNotEquals(Assert.java:280)
+	at junit.framework.Assert.assertEquals(Assert.java:64)
+	at junit.framework.Assert.assertEquals(Assert.java:198)
+	at junit.framework.Assert.assertEquals(Assert.java:204)
+	at edu.coursera.concurrent.ListSetTest.testReadWriteLocksHelper(ListSetTest.java:205)
+	at edu.coursera.concurrent.ListSetTest.testReadWriteLocksRepeatingSmall(ListSetTest.java:133)
+
